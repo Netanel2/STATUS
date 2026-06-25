@@ -12,8 +12,8 @@ namespace ST_bb25f8172821441a9a8074e199874c50
     {
         // 🛑 טיפ: אם החיבור נכשל, החלף את המילה "home" בכתובת ה-IP המלאה של השרת
         private readonly string connStrForJobs = "Data Source=PSRS;Initial Catalog=msdb;Integrated Security=SSPI;";
-        private readonly string connStrForBI = "Data Source=home;Initial Catalog=msdb;User ID=GIDIA;Password=ASas123456#;";
-        private readonly string connStrForWebSites = "Data Source=172.16.8.16;Initial Catalog=msdb;User ID=automic;Password=znt-3MO.Bi6Av#b3;";
+        private readonly string connStrForBI = "Data Source=home;Initial Catalog=msdb;User ID=;Password=;";
+        private readonly string connStrForWebSites = "Data Source=172.16.8.16;Initial Catalog=msdb;User ID=;Password=;";
 
         public void Main()
         {
