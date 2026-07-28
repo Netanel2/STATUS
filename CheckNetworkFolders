@@ -1,0 +1,30 @@
+אני צריך להכין תהליך SSIS חדש, השאילתה הזאת תרוץ 
+--Select all locked plugins by name
+	use ALTSHULER_MSCRM
+	select  name,count(*)  as count  , min (dateadd (hh,2,(CreatedOn))) as 'min (CreatedOn)', 
+	--, StateCode,
+	 max (dateadd(hh,2,(CreatedOn))) as 'max (CreatedOn)',sum (datalength(data)) as "sum (datalength(data))"
+	from AsyncOperation with(nolock)
+	where  --name='Generix.PlugIn.Email.Email: Create of email'
+	 StateCode=2
+	 group by name
+	 --,StateCode
+	-- having count (*)>1
+	 order by count (*) desc
+
+ואם יש תוצאה מעל 10 דקות צריך לערות את ה UPDATEהזה 
+	--------------------Update each plugin individually to state 0 and status 10:
+	-- update  AsyncOperation
+	-- set StateCode='0' , StatusCode='10'   --להפעלה
+	----set StateCode='3' , StatusCode='31'   --לביטול
+	-- where StateCode='2' and
+	--  name='GeneriX.AltGemel.DepositPlugin.DepositPlugin: Async Update of gen_deposit'
+
+ולקחת את ה NAME מהשאילתה ולעדכן בNAME בUPDATE 
+
+
+
+
+
+
+
